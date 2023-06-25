@@ -1,5 +1,9 @@
 # MaintainX take-home project
 
+## Development
+More details about the development process can be foud here:
+  - [Project Development](docs/DEVELOPMENT.md)
+
 ## Tech & setup
 
 When you setup this project (see "Get Started" in the next section), we provide you with some modules, tooling, data and an example by default.

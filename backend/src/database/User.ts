@@ -1,4 +1,3 @@
-
 import SQL_DB from './db';
 import { ServerException } from '../exceptions/ServerException';
 

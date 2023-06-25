@@ -1,60 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Example from "./components/Example";
+import Home from "./components/Home";
 import logo from "./assets/logo.svg";
-import "./App.css";
-
-function Home() {
-  return (
-    <>
-      <p>
-        Take me to the <Link to="/example">Example Page</Link>.
-      </p>
-    </>
-  );
-}
-
-interface IFavorite {
-  id: number;
-  name: string;
-  email: string;
-}
-
-function Example() {
-  const [favorite, setFavorite] = React.useState<IFavorite | null>(null);
-
-  async function handleHelloWorld() {
-    const response = await fetch("/api/example", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id: Math.floor(1 + Math.random() * 9) }),
-    });
-    const jsonResponse = await response.json();
-    setFavorite(jsonResponse.favorite);
-  }
-
-  return (
-    <div>
-      {favorite ? (
-        <p>
-          My favorite Morty is <strong>{favorite.name}</strong>!
-        </p>
-      ) : null}
-      <button type="button" onClick={handleHelloWorld}>
-        Who's my favorite Morty?
-      </button>
-    </div>
-  );
-}
+import "./styles.css";
 
 export default function App() {
   return (
     <Router>
-      <div className="app">
-        <img src={logo} className="app-logo" alt="logo" />
-        <div className="app-body">
+      <div className="bg-blue h-screen w-screen flex flex-col items-center justify-center text-white text-center">
+        <img
+          src={logo}
+          className="animate-appLogoScale pointer-events-none h-[20vmin]"
+          alt="logo"
+        />
+        <div className="mt-[40px]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/example" element={<Example />} />

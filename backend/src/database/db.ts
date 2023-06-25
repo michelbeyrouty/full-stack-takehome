@@ -1,25 +1,32 @@
 import { open as sqliteOpen } from "sqlite";
 import { Database } from "sqlite3";
-const db = sqliteOpen({ filename: ":memory:", driver: Database });
 
-const sql = (...args: Parameters<Database["all"]>) =>
-  db
-    .then((dbo) => dbo.all(...args))
-    .catch((e) => {
-      console.error("DB Error:", e);
-      throw e;
-    });
+class SQL_DB {
 
-(async () => {
-  // Users
-  await sql(`
+  private db: any
+
+  constructor() {
+    this.db = {}
+  }
+
+  async connect() {
+    this.db = await sqliteOpen({ filename: ":memory:", driver: Database });;
+  }
+
+  async sql(query: string, variables?: (string | number)[]) {
+    return this.db.all(query, variables)
+  }
+
+  async seed() {
+    // Users
+    await this.sql(`
     CREATE TABLE users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name VARCHAR(255),
       email VARCHAR(255)
     );
   `);
-  await sql(`
+    await this.sql(`
     INSERT INTO users (id, name, email)
     VALUES
       (1, 'Alien Morty', 'alien@mortys.com'),
@@ -33,15 +40,15 @@ const sql = (...args: Parameters<Database["all"]>) =>
       (9, 'Pickle Morty', 'letsmarinate@mortys.com');
   `);
 
-  // Work Orders
-  await sql(`
+    // Work Orders
+    await this.sql(`
     CREATE TABLE work_orders (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name VARCHAR(255),
       status VARCHAR(255) CHECK( status IN ('OPEN', 'CLOSED') ) NOT NULL DEFAULT 'OPEN'
     );
   `);
-  await sql(`
+    await this.sql(`
     INSERT INTO work_orders (id, name, status)
     VALUES
       (1, 'Unfreeze Frozen Morty', 'OPEN'),
@@ -53,8 +60,8 @@ const sql = (...args: Parameters<Database["all"]>) =>
       (7, 'Don''t assign and close', 'CLOSED');
   `);
 
-  // Work Order Assignees
-  await sql(`
+    // Work Order Assignees
+    await this.sql(`
     CREATE TABLE work_order_assignees (
       work_order_id INT NOT NULL,
       user_id INT NOT NULL,
@@ -63,7 +70,7 @@ const sql = (...args: Parameters<Database["all"]>) =>
       FOREIGN KEY(user_id) REFERENCES users(id)
     );
   `);
-  await sql(`
+    await this.sql(`
     INSERT INTO work_order_assignees (work_order_id, user_id)
     VALUES
       (3, 1),
@@ -73,6 +80,8 @@ const sql = (...args: Parameters<Database["all"]>) =>
       (6, 5),
       (4, 8);
   `);
-})();
+  }
 
-export default sql;
+}
+
+export default new SQL_DB();

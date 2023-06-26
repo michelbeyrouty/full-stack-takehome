@@ -4,6 +4,7 @@ import SQL_DB from "./database/db";
 import HandleError from "./middlewares/HandleError";
 import LogRequestDetails from "./middlewares/LogRequestDetails";
 import userRouter from "./routes/userRoutes";
+import orderRouter from "./routes/orderRoutes";
 
 const app = express();
 app.use(express.json());
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(LogRequestDetails);
 
 app.use("/api", userRouter);
+app.use("/api", orderRouter);
 
 app.use(HandleError);
 

@@ -1,5 +1,4 @@
-
-const User = require("../database/User")
+import User from "../database/User";
 
 async function getUserById(userId: number) {
     const user = User.getUserById(userId);

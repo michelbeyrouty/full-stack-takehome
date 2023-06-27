@@ -1,0 +1,32 @@
+import "./Sidebar.css";
+import Card from "../Card/Card";
+import logo from "../../assets/logo.svg";
+import SidebarLink from "../SidebarLink/SidebarLink";
+import constants from "../../constants";
+
+const links = Object.keys(constants.navOptions);
+
+const styles = {
+  card: {
+    height: "90%",
+    marginLeft: "20px",
+    width: "160px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
+  },
+};
+
+export default function Sidebar() {
+  return (
+    <Card style={styles.card}>
+      <div className="logo-div">
+        <img className="logo" src={logo} alt="logo" />
+      </div>
+      {links.map((link) => (
+        <SidebarLink key={link} link={link} />
+      ))}
+    </Card>
+  );
+}

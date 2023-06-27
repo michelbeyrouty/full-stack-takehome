@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
-
 export default function Home() {
   return (
-    <>
-      <p>
-        Take me to the <Link to="/example">Example Page</Link>.
-      </p>
-    </>
+    <div
+      style={{
+        height: "100%",
+        width: "100%",
+        overflowY: "auto",
+        paddingRight: "24px",
+        paddingLeft: "20px",
+        paddingTop: "8px",
+      }}
+    ></div>
   );
 }

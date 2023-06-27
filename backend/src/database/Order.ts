@@ -10,6 +10,16 @@ async function getOrders() {
     }
 }
 
+async function getOrder(orderId: number) {
+    try {
+        const result = await SQL_DB.sql("SELECT * FROM work_orders WHERE id = ?", [orderId]);
+        return result
+    } catch (error: any) {
+        throw new ServerException(error.message, error.stack)
+    }
+}
+
 export default {
-    getOrders
+    getOrders,
+    getOrder
 }

@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
-import { ValidationException } from '../exceptions/ValidationException';
+import ValidationException from '../exceptions/ValidationException';
 import userService from "../services/userService";
 
-export const getUser = async (request: Request, response: Response, next: NextFunction) => {
+const getUser = async (request: Request, response: Response, next: NextFunction) => {
 
     try {
         const { body } = request;
@@ -11,9 +11,13 @@ export const getUser = async (request: Request, response: Response, next: NextFu
             throw new ValidationException("One of the following keys is missing or is empty in request body: 'id'")
         }
 
-        const user = await userService.getUserById(Number(request.body.id) || 9);
+        const user = await userService.getUserById(Number(body.id) || 9);
         response.status(200).send({ status: "OK", favorite: user });
     } catch (error) {
         next(error)
     }
+}
+
+export default {
+    getUser
 }

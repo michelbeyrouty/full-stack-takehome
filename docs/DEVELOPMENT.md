@@ -12,4 +12,5 @@ Possible enhacments for thsi project:
 - Use proper logging Library instead of simply using console.log
 - Add versioning to routes `/api/v1`
 - Use [http-status-codes](https://www.npmjs.com/package/http-status-codes) 3rd party library for status codes
+- Add functional tests
 

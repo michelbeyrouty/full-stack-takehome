@@ -5,6 +5,12 @@ async function getOrders() {
     return orders;
 }
 
+async function getOrder(orderId: number) {
+    const orders = await Order.getOrder(orderId);
+    return orders;
+}
+
 export default {
-    getOrders
+    getOrders,
+    getOrder
 }

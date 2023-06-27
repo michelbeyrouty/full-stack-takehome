@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Card from "./Card/Card";
 import fetchHelloWorld from "../apis/fetchHelloWorld";
 
 interface IFavorite {
@@ -18,14 +19,17 @@ export default function Example() {
 
   return (
     <div>
-      {favorite ? (
-        <p>
-          My favorite Morty is <strong>{favorite.name}</strong>!
-        </p>
-      ) : null}
-      <button type="button" onClick={handleHelloWorld}>
-        Who's my favorite Morty?
-      </button>
+      <div>
+        {favorite ? (
+          <p>
+            My favorite Morty is <strong>{favorite.name}</strong>!
+          </p>
+        ) : null}
+        <button type="button" onClick={handleHelloWorld}>
+          Who's my favorite Morty?
+        </button>
+        <Card />
+      </div>
     </div>
   );
 }

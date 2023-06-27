@@ -9,3 +9,8 @@ export const getOrders = async (request: Request, response: Response, next: Next
         next(error)
     }
 }
+
+
+export default {
+    getOrders
+}

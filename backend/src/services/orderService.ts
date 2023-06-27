@@ -1,7 +1,7 @@
 import Order from "../database/Order";
 
 async function getOrders() {
-    const orders = Order.getOrders();
+    const orders = await Order.getOrders();
     return orders;
 }
 

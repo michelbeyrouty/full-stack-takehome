@@ -2,13 +2,12 @@ import "./GlassPane.css";
 
 interface GlassPane {
   children?: any[];
-  style?: any;
+  className?: string;
 }
 
-export default function GlassPane({ children = [], style = {} }: GlassPane) {
-  return (
-    <div className="glasspane-wrapper" style={style}>
-      {children}
-    </div>
-  );
+export default function GlassPane({
+  children = [],
+  className = "",
+}: GlassPane) {
+  return <div className={`glasspane-wrapper ${className}`}>{children}</div>;
 }

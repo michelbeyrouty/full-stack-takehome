@@ -2,9 +2,9 @@ import "./Sidebar.css";
 import Card from "../Card/Card";
 import logo from "../../assets/logo.svg";
 import SidebarLink from "../SidebarLink/SidebarLink";
-import constants from "../../constants";
+import { navOptions } from "../../constants";
 
-const links = Object.keys(constants.navOptions);
+const links = Object.keys(navOptions);
 
 const styles = {
   card: {

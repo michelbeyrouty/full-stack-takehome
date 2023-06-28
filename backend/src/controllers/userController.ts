@@ -12,6 +12,7 @@ const getUser = async (request: Request, response: Response, next: NextFunction)
         }
 
         const user = await userService.getUserById(Number(body.id) || 9);
+        response.set('Access-Control-Allow-Origin', '*');
         response.status(200).send({ status: "OK", favorite: user });
     } catch (error) {
         next(error)

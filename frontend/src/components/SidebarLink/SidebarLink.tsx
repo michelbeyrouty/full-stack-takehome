@@ -1,6 +1,6 @@
 import "./SidebarLink.css";
 import { Link, useLocation } from "react-router-dom";
-import constants from "../../constants";
+import { navOptions } from "../../constants";
 
 interface SidebarLinkProps {
   link: string;
@@ -8,7 +8,7 @@ interface SidebarLinkProps {
 
 export default function SidebarLink({ link }: SidebarLinkProps) {
   const pathname = useLocation().pathname;
-  const navOption = constants.navOptions[link];
+  const navOption = navOptions[link];
   let isActive = false;
 
   if (pathname === navOption.link) {

@@ -14,3 +14,10 @@ Possible enhacments for thsi project:
 - Use [http-status-codes](https://www.npmjs.com/package/http-status-codes) 3rd party library for status codes
 - Add functional tests
 
+## Notes
+- Added delay on frontend to showcase async components
+
+## Reference
+- [Suspense Implementation](https://stackoverflow.com/questions/71915721/how-i-can-get-suspense-to-work-on-react-18)
+
+

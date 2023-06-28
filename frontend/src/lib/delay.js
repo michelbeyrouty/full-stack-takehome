@@ -1,4 +1,4 @@
-export function delay(time: number) {
+export default function delay(time) {
     return new Promise((resolve) => {
         setTimeout(() => resolve(1), time);
     });

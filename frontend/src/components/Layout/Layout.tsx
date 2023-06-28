@@ -19,7 +19,7 @@ const styles = {
 
 export default function Layout({ children = [] }: LayoutProps) {
   return (
-    <div className="layout-wrapper">
+    <div className="layout-wrapper rainbow-mesh">
       <GlassPane style={styles.glassPane}>
         <Sidebar />
         {children}

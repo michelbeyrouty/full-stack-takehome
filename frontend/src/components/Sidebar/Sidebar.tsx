@@ -15,6 +15,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
+    backgroundColor: "#1887fc",
   },
 };
 

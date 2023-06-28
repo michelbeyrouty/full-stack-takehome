@@ -1,5 +1,18 @@
 import createIcon from "./assets/create.png";
-import viewIcon from "./assets/view.png";
+import ordersIcon from "./assets/view.png";
+
+export interface IOrder {
+    id?: number;
+    name?: string;
+    status?: string;
+    assignees?: string[];
+}
+
+export enum IOrderStatus {
+    OPEN = 'OPEN',
+    CLOSED = 'CLOSED',
+}
+
 
 interface navOptions {
     [key: string]: {
@@ -8,17 +21,13 @@ interface navOptions {
     }
 }
 
-const navOptions: navOptions = {
+export const navOptions: navOptions = {
     "create": {
         icon: createIcon,
         link: "/create",
     },
-    "view": {
-        icon: viewIcon,
-        link: "/view",
+    "orders": {
+        icon: ordersIcon,
+        link: "/orders",
     },
-}
-
-export default {
-    navOptions
 }

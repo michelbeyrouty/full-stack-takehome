@@ -12,8 +12,36 @@ async function getOrders() {
 
 async function getOrder(orderId: number) {
     try {
-        const result = await SQL_DB.sql("SELECT * FROM work_orders WHERE id = ?", [orderId]);
-        return result
+        const result = await SQL_DB.sql(`
+            SELECT
+                wo.id,
+                wo.name,
+                wo.status,
+                COALESCE('[' || GROUP_CONCAT(
+                    '{' ||
+                    '"id": ' || u.id || ', ' ||
+                    '"name": "' || u.name || '", ' ||
+                    '"email": "' || u.email || '"' ||
+                    '}'
+                ) || ']', '[]') AS assignedUsers
+            FROM
+                work_orders wo
+            LEFT JOIN
+                work_order_assignees woa ON wo.id = woa.work_order_id
+            LEFT JOIN
+                users u ON woa.user_id = u.id
+            WHERE
+                wo.id = ?
+        `, [orderId]);
+
+        const orderWithUsers = {
+            ...result[0],
+            assignedUsers: JSON.parse(result[0].assignedUsers)
+        }
+
+        //TODO: FIX
+
+        return orderWithUsers
     } catch (error: any) {
         throw new ServerException(error.message, error.stack)
     }

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import fetchOrders from "../apis/fetchOrders"
+import fetchOrder from "../apis/fetchOrder"
 import wrapPromise from "../lib/wrapPromise"
 
-const useGetOrders = () => {
+const useGetOrder = (orderId?: string) => {
     const [resource, setResource] = useState(null);
     useEffect(() => {
-        const _resource = wrapPromise(fetchOrders());
+        const _resource = wrapPromise(fetchOrder(orderId));
         setResource(_resource);
     }, []);
 
     return resource?.read();
 };
 
-export default useGetOrders;
+export default useGetOrder;

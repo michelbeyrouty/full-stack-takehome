@@ -1,0 +1,45 @@
+.orderdetails-wrapper {
+  width: 95%;
+  height: 95%;
+  padding-left: 2%;
+  background-color: #1887fc;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: space-around;
+  font-size: large;
+}
+
+.orderdetails-field {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  justify-items: center;
+  gap: 10%;
+}
+
+.orderdetails-field-title {
+  font-weight: bold;
+}
+
+.orderdetails-users {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.test {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 7px;
+}
+
+.orderdetails-useremail {
+  display: none;
+}
+
+.orderdetails-username:hover + .orderdetails-useremail {
+  display: block;
+}

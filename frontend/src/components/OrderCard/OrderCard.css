@@ -11,14 +11,14 @@
 }
 
 .ordercard-wrapper > div > span {
-  font-size: 18px;
+  font-size: large;
   height: 100%;
   color: black;
 }
 
 .ordercard-wrapper > div > div {
   width: 50px;
-  font-size: 13px;
+  font-size: small;
   border-radius: 25px;
   margin: auto;
   padding: 5px;

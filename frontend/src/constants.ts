@@ -28,13 +28,13 @@ interface navOptions {
 }
 
 export const navOptions: navOptions = {
-    "create": {
-        icon: createIcon,
-        link: "/create",
-    },
     "orders": {
         icon: ordersIcon,
         link: "/orders",
+    },
+    "create": {
+        icon: createIcon,
+        link: "/create",
     },
     "productivity": {
         icon: productivityIcon,

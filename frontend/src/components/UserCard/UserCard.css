@@ -1,0 +1,19 @@
+.usercard {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(226, 234, 237);
+  width: 30%;
+}
+
+.usercard > div > div {
+  width: 100%;
+  font-size: medium;
+  font-weight: bold;
+  border-radius: 25px;
+  text-align: center;
+  color: "#4A7843";
+}
+
+.UserCard-list {
+  font-size: small;
+}

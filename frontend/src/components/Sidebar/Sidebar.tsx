@@ -2,6 +2,7 @@ import "./Sidebar.css";
 import Card from "../Card/Card";
 import logo from "../../assets/logo.svg";
 import SidebarLink from "../SidebarLink/SidebarLink";
+import { Link } from "react-router-dom";
 import { navOptions } from "../../constants";
 
 const links = Object.keys(navOptions);
@@ -20,9 +21,9 @@ const styles = {
 export default function Sidebar() {
   return (
     <Card style={styles}>
-      <div className="sidebar-logo-div">
+      <Link to="/" className="sidebar-logo-div">
         <img className="sidebar-logo" src={logo} alt="logo" />
-      </div>
+      </Link>
       {links.map((link) => (
         <SidebarLink key={link} link={link} />
       ))}

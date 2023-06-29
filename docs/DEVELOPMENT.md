@@ -6,6 +6,13 @@ Also i will be mentioning enhancments that we could use.
 
 The first step was to go through the instruction and create relevant tickets. I used github projects to keep track of my progress and TODOs. You can find the details (here)[https://github.com/users/michelbeyrouty/projects/1]
 
+## Start Project
+Run these commands to start the project locally:
+```
+yarn install
+yarn start
+```
+
 ## Possible enhancments
 Possible enhacments for thsi project:
 
@@ -13,6 +20,7 @@ Possible enhacments for thsi project:
 - Add versioning to routes `/api/v1`
 - Use [http-status-codes](https://www.npmjs.com/package/http-status-codes) 3rd party library for status codes
 - Add functional tests
+- Add pagination
 
 ## Notes
 - Added delay on frontend to showcase async components

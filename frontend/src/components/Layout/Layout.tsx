@@ -13,7 +13,7 @@ export default function Layout({ children }: LayoutProps) {
         <Sidebar />
         <div className="layout-body">{children}</div>
       </GlassPane>
-      {/* <div id="modal" /> TODO*/}
+      {/* <div id="modal" /> TODO */}
     </div>
   );
 }

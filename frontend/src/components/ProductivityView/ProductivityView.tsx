@@ -1,12 +1,11 @@
 import { Suspense } from "react";
-import OrdersSkeleton from "../Orders/OrdersSkeleton";
-import Orders from "../Orders/Orders";
+import Productivity from "../Productivity/Productivity";
+import Loader from "../Loader/Loader";
 
 export default function ProductivityView() {
   return (
-    <div>Loading</div>
-    // <Suspense fallback={<OrdersSkeleton count={[1, 2, 3, 4, 5, 6]} />}>
-    //   <Orders />
-    // </Suspense>
+    <Suspense fallback={<Loader title={"Unproductive Users"} />}>
+      <Productivity />
+    </Suspense>
   );
 }

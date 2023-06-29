@@ -1,0 +1,50 @@
+.orderform {
+  width: 95%;
+  height: 95%;
+  padding-left: 2%;
+  background-color: #1887fc;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.orderform-header {
+  text-align: center;
+  width: 100%;
+}
+
+.orderform-header > h2 {
+  font-size: xx-large;
+  line-height: 36px;
+}
+
+.orderform-form {
+  padding-top: 40px;
+  width: 60%;
+}
+
+.form-field {
+  margin-bottom: 2rem;
+}
+
+.form-field-title {
+  font-size: large;
+  line-height: 28px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  margin-left: 8px;
+}
+
+.form-field-title > span {
+  font-size: x-small;
+}
+
+.form-button {
+  display: flex;
+  justify-content: center;
+}
+
+.form-select {
+  width: 100%;
+}

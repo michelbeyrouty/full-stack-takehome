@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { IOrder } from "../constants";
-import fetchOrders from "../apis/fetchOrders"
+import { IUser } from "../constants";
+import fetchUsers from "../apis/fetchUsers"
 import wrapPromise from "../lib/wrapPromise"
 
-export default function useGetOrders(): IOrder[] {
+export default function useGetUsers(): IUser[] {
     const [resource, setResource] = useState(null);
     useEffect(() => {
-        const _resource = wrapPromise(fetchOrders());
+        const _resource = wrapPromise(fetchUsers());
         setResource(_resource);
     }, []);
 

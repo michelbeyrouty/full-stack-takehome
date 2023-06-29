@@ -23,7 +23,7 @@ async function getOrder(orderId: number) {
                     '"name": "' || u.name || '", ' ||
                     '"email": "' || u.email || '"' ||
                     '}'
-                ) || ']', '[]') AS assignedUsers
+                ) || ']', '[]') AS users
             FROM
                 work_orders wo
             LEFT JOIN
@@ -36,7 +36,7 @@ async function getOrder(orderId: number) {
 
         const orderWithUsers = {
             ...result[0],
-            assignedUsers: JSON.parse(result[0].assignedUsers)
+            users: JSON.parse(result[0].users)
         }
 
         //TODO: FIX

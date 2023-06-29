@@ -1,4 +1,4 @@
-import delay from "../lib/delay"
+import delay from "../lib/delay";
 
 export default async function updateOrderStatus(newStatus: string) {
     try {

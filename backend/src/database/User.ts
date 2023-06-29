@@ -10,6 +10,16 @@ async function getUserById(userId: number) {
     }
 }
 
+async function getUsers() {
+    try {
+        const result = await SQL_DB.sql("SELECT * FROM users");
+        return result
+    } catch (error: any) {
+        throw new ServerException(error.message, error.stack)
+    }
+}
+
 export default {
-    getUserById
+    getUserById,
+    getUsers
 }

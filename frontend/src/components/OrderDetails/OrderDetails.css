@@ -1,4 +1,4 @@
-.orderdetails-wrapper {
+.orderdetails {
   width: 95%;
   height: 95%;
   padding-left: 2%;
@@ -6,40 +6,54 @@
   display: flex;
   flex-direction: column;
   justify-items: center;
-  justify-content: space-around;
-  font-size: large;
+  align-items: center;
+}
+
+.orderdetails-header {
+  text-align: center;
+}
+
+.orderdetails-header > h2 {
+  font-size: xx-large;
+  line-height: 36px;
+}
+
+.orderdetails-body {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
 }
 
 .orderdetails-field {
-  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  justify-items: center;
   gap: 10%;
+  align-items: flex-start;
 }
 
 .orderdetails-field-title {
   font-weight: bold;
+  font-size: large;
 }
 
 .orderdetails-users {
   display: flex;
   flex-direction: column;
-  width: 80%;
 }
 
-.test {
+.orderdetails-user {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   gap: 7px;
 }
 
-.orderdetails-useremail {
-  display: none;
+.orderdetails-user-name:hover + .orderdetails-user-email {
+  display: block;
 }
 
-.orderdetails-username:hover + .orderdetails-useremail {
-  display: block;
+.orderdetails-user-email {
+  display: none;
 }

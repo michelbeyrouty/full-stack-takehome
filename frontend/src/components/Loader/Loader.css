@@ -1,0 +1,45 @@
+.loader {
+  width: 95%;
+  height: 95%;
+  padding-left: 2%;
+  background-color: #1887fc;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.loader-header {
+  text-align: center;
+}
+
+.loader-header > h2 {
+  font-size: xx-large;
+  line-height: 36px;
+}
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+.loader-spinner {
+  width: 100px;
+  height: 100px;
+  border: 5px solid #fff;
+  border-bottom-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,8 +1,19 @@
-.logo {
+.sidebar {
+  height: 90%;
+  margin-left: 20px;
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #1887fc;
+}
+
+.sidebar-logo {
   width: 120px;
 }
 
-.logo-div {
+.sidebar-logo-div {
   width: 100%;
   display: flex;
   justify-content: center;

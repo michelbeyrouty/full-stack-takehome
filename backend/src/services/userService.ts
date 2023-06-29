@@ -5,6 +5,12 @@ async function getUserById(userId: number) {
     return user;
 }
 
+async function getUsers() {
+    const orders = await User.getUsers();
+    return orders;
+}
+
 export default {
-    getUserById
+    getUserById,
+    getUsers
 }

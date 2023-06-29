@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import OrdersView from "./components/OrdersView/OrdersView";
-import OrderDetails from "./components/OrderDetails/OrderDetails";
-import OrderForm from "./components/OrderForm/OrderForm";
+import OrderDetailsView from "./components/OrderDetailsView/OrderDetailsView";
+import ProductivityView from "./components/ProductivityView/ProductivityView";
+import OrderFromView from "./components/OrderFromView/OrderFromView";
 import "./index.css";
 
 export default function App() {
@@ -10,9 +11,10 @@ export default function App() {
     <Router>
       <Layout>
         <Routes>
+          <Route path="/productivity" element={<ProductivityView />} />
           <Route path="/orders" element={<OrdersView />} />
-          <Route path="/create" element={<OrderForm />} />
-          <Route path="/orders/:orderId" element={<OrderDetails />} />
+          <Route path="/create" element={<OrderFromView />} />
+          <Route path="/orders/:orderId" element={<OrderDetailsView />} />
         </Routes>
       </Layout>
     </Router>

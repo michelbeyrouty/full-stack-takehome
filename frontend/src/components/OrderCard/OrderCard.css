@@ -1,4 +1,4 @@
-.ordercard-wrapper {
+.ordercard {
   display: flex;
   align-items: center;
   justify-items: center;
@@ -6,17 +6,17 @@
   background-color: #1887fc;
 }
 
-.ordercard-wrapper:hover {
+.ordercard:hover {
   transform: scale(1.02);
 }
 
-.ordercard-wrapper > div > span {
+.ordercard > div > span {
   font-size: large;
   height: 100%;
   color: black;
 }
 
-.ordercard-wrapper > div > div {
+.ordercard > div > div {
   width: 50px;
   font-size: small;
   border-radius: 25px;

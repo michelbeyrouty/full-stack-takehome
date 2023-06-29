@@ -1,4 +1,4 @@
-import "./OrdersSkeleton.css";
+import "./Orders.css";
 import OrderCard from "../OrderCard/OrderCard";
 
 interface OrdersSkeletonProps {
@@ -7,7 +7,7 @@ interface OrdersSkeletonProps {
 
 export default function OrdersSkeleton({ count }: OrdersSkeletonProps) {
   return count.map((number) => (
-    <div className="ordersskeleton-wrapper" key={number}>
+    <div className="orders" key={number}>
       <OrderCard order={{ name: "loading..." }} key={number} />
     </div>
   ));

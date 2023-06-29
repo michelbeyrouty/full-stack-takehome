@@ -5,9 +5,6 @@ interface GlassPane {
   className?: string;
 }
 
-export default function GlassPane({
-  children = [],
-  className = "",
-}: GlassPane) {
-  return <div className={`glasspane-wrapper ${className}`}>{children}</div>;
+export default function GlassPane({ children, className }: GlassPane) {
+  return <div className={`glasspane ${className}`}>{children}</div>;
 }

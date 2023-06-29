@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import OrdersSkeleton from "../OrdersSkeleton/OrdersSkeleton";
+import OrdersSkeleton from "../Orders/OrdersSkeleton";
 import Orders from "../Orders/Orders";
 
 export default function OrdersView() {

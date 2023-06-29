@@ -1,16 +1,20 @@
 import Order from "../database/Order";
+import { IOrder } from "../constants/interfaces";
 
 async function getOrders() {
-    const orders = await Order.getOrders();
-    return orders;
+    return await Order.getOrders();
 }
 
 async function getOrder(orderId: number) {
-    const orders = await Order.getOrder(orderId);
-    return orders;
+    return await Order.getOrderByOrderId(orderId);
+}
+
+async function createOrder(order: IOrder) {
+    return await Order.createOrder(order);
 }
 
 export default {
     getOrders,
-    getOrder
+    getOrder,
+    createOrder
 }

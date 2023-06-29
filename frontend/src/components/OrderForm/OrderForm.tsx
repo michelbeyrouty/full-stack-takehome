@@ -6,7 +6,7 @@ import Card from "../Card/Card";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 
-const initial = { name: "", users: [] };
+const initial = { name: "", userIds: [] };
 
 // TODO: clean functions
 
@@ -30,15 +30,18 @@ export default function OrderForm() {
   async function handleMultiSelect(event: any) {
     event.preventDefault();
     const options = event.target.options;
-    const value = [];
+    const value: number[] = [];
     for (var i = 0, l = options.length; i < l; i++) {
       if (options[i].selected) {
-        value.push(options[i].value);
+        const selectedUserId = users.filter(
+          (user) => user.email === options[i].value
+        )[0].id;
+        value.push(selectedUserId);
       }
     }
 
     console.log(value);
-    setFormState((s) => ({ ...s, users: value }));
+    setFormState((s) => ({ ...s, userIds: value }));
   }
 
   return (

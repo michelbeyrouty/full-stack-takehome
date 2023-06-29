@@ -3,14 +3,14 @@ import ordersIcon from "./assets/view.png";
 import productivityIcon from "./assets/productivity.png"
 
 export interface IOrder {
-    id?: number;
+    id: number;
     name?: string;
-    status?: string;
-    assignees?: IUser[];
+    status: string;
+    users?: IUser[];
 }
 
 export interface IUser {
-    id?: number;
+    id: number;
     name?: string;
     email?: string;
 }

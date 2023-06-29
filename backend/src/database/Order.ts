@@ -1,18 +1,22 @@
 import SQL_DB from './db';
+import { IOrder } from "../constants/interfaces";
 import { ServerException } from '../exceptions/ServerException';
 
 async function getOrders() {
+
+    const getOrder = "SELECT * FROM work_orders"
+
     try {
-        const result = await SQL_DB.sql("SELECT * FROM work_orders");
+        const result = await SQL_DB.sql(getOrder);
         return result
     } catch (error: any) {
         throw new ServerException(error.message, error.stack)
     }
 }
 
-async function getOrder(orderId: number) {
-    try {
-        const result = await SQL_DB.sql(`
+async function getOrderByOrderId(orderId: number) {
+
+    const getOrderWithUsers = `
             SELECT
                 wo.id,
                 wo.name,
@@ -32,14 +36,15 @@ async function getOrder(orderId: number) {
                 users u ON woa.user_id = u.id
             WHERE
                 wo.id = ?
-        `, [orderId]);
+        `;
+
+    try {
+        const result = await SQL_DB.sql(getOrderWithUsers, [orderId]);
 
         const orderWithUsers = {
             ...result[0],
             users: JSON.parse(result[0].users)
         }
-
-        //TODO: FIX
 
         return orderWithUsers
     } catch (error: any) {
@@ -47,7 +52,35 @@ async function getOrder(orderId: number) {
     }
 }
 
+async function createOrder(order: IOrder) {
+
+    const insertOrder = "INSERT INTO work_orders (name, status) VALUES (?)"
+    const retrieveOrderID = "SELECT last_insert_rowid() AS order_id"
+    const insertWorkOrderAsignees = "INSERT INTO work_order_assignees (work_order_id, user_id) VALUES (?, ?)"
+
+    try {
+        await SQL_DB.sql("BEGIN TRANSACTION");
+
+        await SQL_DB.sql(insertOrder, [order.name]);
+
+        const result = await SQL_DB.sql(retrieveOrderID);
+        const orderID = result[0].order_id;
+
+        for (const userID of order.users) {
+            await SQL_DB.sql(insertWorkOrderAsignees, [orderID, userID]);
+        }
+
+        await SQL_DB.sql("COMMIT");
+
+    } catch (error: any) {
+
+        await SQL_DB.sql("ROLLBACK");
+        throw new ServerException(error.message, error.stack)
+    }
+}
+
 export default {
     getOrders,
-    getOrder
+    getOrderByOrderId,
+    createOrder
 }

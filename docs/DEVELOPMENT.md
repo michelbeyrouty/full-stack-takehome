@@ -14,18 +14,20 @@ yarn start
 ```
 
 ## Possible enhancments
-Possible enhacments for thsi project:
+Possible enhacments for the project:
 
 - Use proper logging Library instead of simply using console.log
 - Add versioning to routes `/api/v1`
 - Use [http-status-codes](https://www.npmjs.com/package/http-status-codes) 3rd party library for status codes
 - Add functional tests
 - Add pagination
+- Enhance validation in api controllers
 
 ## Notes
 - Added delay on frontend to showcase async components
 
 ## Reference
 - [Suspense Implementation](https://stackoverflow.com/questions/71915721/how-i-can-get-suspense-to-work-on-react-18)
+- [sqlite transaction](https://www.sqlitetutorial.net/sqlite-transaction/)
 
 

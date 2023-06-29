@@ -5,11 +5,13 @@ import createOrder from "../../apis/createOrder";
 import Card from "../Card/Card";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
 
-const initial = { name: "", userIds: [] };
+const initial = { name: "", users: [] };
 
 export default function OrderForm() {
   const [formState, setFormState] = useState(initial);
+  const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState("");
   const users = useGetUsers();
 
@@ -18,6 +20,7 @@ export default function OrderForm() {
 
     try {
       await createOrder(formState);
+      setShowModal(true);
     } catch (e) {
       setError(`Could not submit work order`);
     } finally {
@@ -27,16 +30,15 @@ export default function OrderForm() {
 
   async function handleMultiSelect(event: any) {
     const options = event.target.options;
-    const userIds: number[] = [];
+    const users: number[] = [];
 
-    for (var i = 0, l = options.length; i < l; i++) {
+    for (let i = 0, l = options.length; i < l; i++) {
       if (options[i].selected) {
-        userIds.push(Number(options[i].value));
+        users.push(Number(options[i].value));
       }
     }
 
-    console.log(userIds);
-    setFormState((s) => ({ ...s, userIds }));
+    setFormState((s) => ({ ...s, users }));
   }
 
   return (
@@ -78,6 +80,16 @@ export default function OrderForm() {
           <Button type="submit">{"Submit Order"}</Button>
         </div>
       </form>
+      {showModal ? (
+        <Modal>
+          <div>
+            <h1>Order Created</h1>
+            <div className="buttons">
+              <Button onClick={() => setShowModal(false)}>OK</Button>
+            </div>
+          </div>
+        </Modal>
+      ) : null}
     </Card>
   );
 }

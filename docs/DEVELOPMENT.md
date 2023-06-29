@@ -24,6 +24,11 @@ Possible enhacments for the project:
 - Enhance validation in api controllers
 - Enhance UI screen size responsivness
 
+## Task Board
+This [board](https://github.com/users/michelbeyrouty/projects/1) has been used to keep track of the app progress
+
+## Postman Collection
+Postman collection can be found [here](`docs/postman_collection.json`)
 ## Notes
 - Added delay on frontend to showcase async components
 

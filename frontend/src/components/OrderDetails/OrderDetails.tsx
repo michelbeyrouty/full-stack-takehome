@@ -12,11 +12,7 @@ export default function OrderDetails() {
 
   async function updateStatus() {
     window.location.reload();
-    const newStatus =
-      order?.status == IOrderStatus.CLOSED
-        ? IOrderStatus.OPEN
-        : IOrderStatus.CLOSED;
-    await updateOrderStatus(newStatus);
+    await updateOrderStatus(Number(orderId));
   }
 
   return (
@@ -45,12 +41,16 @@ export default function OrderDetails() {
         <div className="orderdetails-field">
           <div className="orderdetails-field-title">Users</div>
           <div className="orderdetails-users">
-            {order?.users.map((user: IUser) => (
-              <div className="orderdetails-user">
-                <text className="orderdetails-user-name">{user?.name}</text>
-                <text className="orderdetails-user-email">{user?.email}</text>
-              </div>
-            ))}
+            {order?.users ? (
+              order.users.map((user: IUser) => (
+                <div className="orderdetails-user">
+                  <text className="orderdetails-user-name">{user?.name}</text>
+                  <text className="orderdetails-user-email">{user?.email}</text>
+                </div>
+              ))
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

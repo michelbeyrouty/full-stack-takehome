@@ -1,10 +1,10 @@
-import delay from "../lib/delay";
-
-export default async function updateOrderStatus(newStatus: string) {
+export default async function updateOrderStatus(orderId: number) {
     try {
-        await delay(2000);
-        console.log("updateOrderStatus: ", newStatus)
-        return
+        const requestOptions = {
+            method: 'PUT',
+        };
+
+        await fetch(`http://localhost:4000/api/orders/${orderId}/status`, requestOptions);
     } catch (e) {
         throw e;
     }

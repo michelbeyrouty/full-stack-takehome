@@ -2,10 +2,10 @@ import "./Productivity.css";
 import { IUser } from "../../constants";
 import UserCard from "../UserCard/UserCard";
 import Card from "../Card/Card";
-import useGetUnproductiveUsers from "../../hooks/useGetUnproductiveUsers";
+import useGetInactiveUsers from "../../hooks/useGetInactiveUsers";
 
 export default function Productivity() {
-  const unproductiveUsers = useGetUnproductiveUsers();
+  const inactiveUsers = useGetInactiveUsers();
 
   return (
     <Card className="productivity">
@@ -13,7 +13,7 @@ export default function Productivity() {
         <h2>{"Unproductive Users"}</h2>
       </div>
       <div className="productivity-body">
-        {unproductiveUsers?.map((user: IUser) => (
+        {inactiveUsers?.map((user: IUser) => (
           <UserCard user={user} key={user.id} />
         ))}
       </div>

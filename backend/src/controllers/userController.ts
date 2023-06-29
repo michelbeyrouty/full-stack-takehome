@@ -11,6 +11,17 @@ export const getUsers = async (request: Request, response: Response, next: NextF
     }
 }
 
+export const getInactiveUsers = async (request: Request, response: Response, next: NextFunction) => {
+    try {
+        const users = await userService.getInactiveUsers();
+        response.set('Access-Control-Allow-Origin', '*');
+        response.status(200).send({ status: "OK", users });
+    } catch (error) {
+        next(error)
+    }
+}
+
 export default {
-    getUsers
+    getUsers,
+    getInactiveUsers
 }

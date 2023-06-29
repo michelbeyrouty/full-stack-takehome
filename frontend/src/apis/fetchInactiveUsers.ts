@@ -1,14 +1,14 @@
 import delay from "../lib/delay"
 import { IUser } from "../constants";
 
-export default async function fetchUnproductiveUsers(): Promise<IUser[]> {
+export default async function fetchInactiveUsers(): Promise<IUser[]> {
     try {
-        // const response = await fetch("http://localhost:4000/api/users/unproductive");
+        // const response = await fetch("http://localhost:4000/api/users/inactive");
 
         await delay(3000);
         // const { users } = await response.json();
 
-        const unproductiveUsers: IUser[] = [
+        const inactiveUsers: IUser[] = [
             {
                 id: 1,
                 name: "namescdsdsdscscsc",
@@ -61,7 +61,7 @@ export default async function fetchUnproductiveUsers(): Promise<IUser[]> {
             },
         ];
 
-        return unproductiveUsers
+        return inactiveUsers
     } catch (e) {
         throw e;
     }

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { IUser } from "../constants";
-import fetchUnproductiveUsers from "../apis/fetchUnproductiveUsers"
+import fetchInactiveUsers from "../apis/fetchInactiveUsers"
 import wrapPromise from "../lib/wrapPromise"
 
-export default function useGetUnproductiveUsers(): IUser[] {
+export default function useGetInactiveUsers(): IUser[] {
     const [resource, setResource] = useState(null);
     useEffect(() => {
-        const _resource = wrapPromise(fetchUnproductiveUsers());
+        const _resource = wrapPromise(fetchInactiveUsers());
         setResource(_resource);
     }, []);
 

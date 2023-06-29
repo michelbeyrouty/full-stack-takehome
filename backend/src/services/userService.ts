@@ -1,10 +1,14 @@
 import User from "../database/User";
 
 async function getUsers() {
-    const orders = await User.getUsers();
-    return orders;
+    return await User.getUsers();
+}
+
+async function getInactiveUsers() {
+    return await User.getInactiveUsers();
 }
 
 export default {
-    getUsers
+    getUsers,
+    getInactiveUsers
 }

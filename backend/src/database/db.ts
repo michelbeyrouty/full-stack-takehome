@@ -13,7 +13,7 @@ class SQL_DB {
     this.db = await sqliteOpen({ filename: ":memory:", driver: Database });;
   }
 
-  async sql(query: string, variables?: (string | number)[]) {
+  async sql(query: string, variables?: (string | number | undefined)[]) {
     return this.db.all(query, variables)
   }
 

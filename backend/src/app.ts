@@ -5,11 +5,13 @@ import handleError from "./middlewares/handleError";
 import logRequestDetails from "./middlewares/logRequestDetails";
 import userRouter from "./routes/userRoutes";
 import orderRouter from "./routes/orderRoutes";
+import allowCrossDomain from "./middlewares/cors"
 
 const app = express();
 app.use(express.json());
 
 app.use(logRequestDetails);
+app.use(allowCrossDomain);
 
 app.use("/api", userRouter);
 app.use("/api", orderRouter);

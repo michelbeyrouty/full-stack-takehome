@@ -8,8 +8,6 @@ import Button from "../Button/Button";
 
 const initial = { name: "", userIds: [] };
 
-// TODO: clean functions
-
 export default function OrderForm() {
   const [formState, setFormState] = useState(initial);
   const [error, setError] = useState("");
@@ -19,7 +17,7 @@ export default function OrderForm() {
     event.preventDefault();
 
     try {
-      createOrder(formState);
+      await createOrder(formState);
     } catch (e) {
       setError(`Could not submit work order`);
     } finally {
@@ -28,20 +26,17 @@ export default function OrderForm() {
   }
 
   async function handleMultiSelect(event: any) {
-    event.preventDefault();
     const options = event.target.options;
-    const value: number[] = [];
+    const userIds: number[] = [];
+
     for (var i = 0, l = options.length; i < l; i++) {
       if (options[i].selected) {
-        const selectedUserId = users.filter(
-          (user) => user.email === options[i].value
-        )[0].id;
-        value.push(selectedUserId);
+        userIds.push(Number(options[i].value));
       }
     }
 
-    console.log(value);
-    setFormState((s) => ({ ...s, userIds: value }));
+    console.log(userIds);
+    setFormState((s) => ({ ...s, userIds }));
   }
 
   return (
@@ -73,7 +68,7 @@ export default function OrderForm() {
             multiple
           >
             {users?.map((user) => (
-              <option value={user.email} key={user.email}>
+              <option value={user.id} key={user.id}>
                 {user.email}
               </option>
             ))}

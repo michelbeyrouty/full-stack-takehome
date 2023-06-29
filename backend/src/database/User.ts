@@ -3,7 +3,7 @@ import { ServerException } from '../exceptions/ServerException';
 
 async function getUsers() {
 
-    const getUsers = "SELECT * FROM work_orders"
+    const getUsers = "SELECT * FROM users"
 
     try {
         return await SQL_DB.sql(getUsers);

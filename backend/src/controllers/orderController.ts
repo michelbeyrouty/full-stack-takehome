@@ -6,7 +6,6 @@ import orderService from "../services/orderService";
 export const getOrders = async (request: Request, response: Response, next: NextFunction) => {
     try {
         const orders = await orderService.getOrders();
-        response.set('Access-Control-Allow-Origin', '*');
         response.status(200).send({ status: "OK", orders });
     } catch (error) {
         next(error)
@@ -17,7 +16,6 @@ export const getOrder = async (request: Request, response: Response, next: NextF
     try {
 
         const order = await orderService.getOrder(Number(request.params.orderId));
-        response.set('Access-Control-Allow-Origin', '*');
         response.status(200).send({ status: "OK", order });
     } catch (error) {
         next(error)
@@ -34,9 +32,18 @@ export const createOrder = async (request: Request, response: Response, next: Ne
             throw new ValidationException("One of the following keys is missing or is empty in request body: 'name'")
         }
 
-        const order = await orderService.createOrder(body);
-        response.set('Access-Control-Allow-Origin', '*');
-        response.status(200).send({ status: "OK", order });
+        await orderService.createOrder(body);
+        response.status(200).send({ status: "OK", message: "order creted successfuly" });
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const updateOrderStatus = async (request: Request, response: Response, next: NextFunction) => {
+    try {
+
+        await orderService.updateOrderStatus(Number(request.params.orderId));
+        response.status(200).send({ status: "OK", message: "order status updated successfuly" });
     } catch (error) {
         next(error)
     }
@@ -45,5 +52,6 @@ export const createOrder = async (request: Request, response: Response, next: Ne
 export default {
     getOrders,
     getOrder,
-    createOrder
+    createOrder,
+    updateOrderStatus
 }

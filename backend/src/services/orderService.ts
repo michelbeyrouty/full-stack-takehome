@@ -13,8 +13,13 @@ async function createOrder(order: IOrder) {
     return await Order.createOrder(order);
 }
 
+async function updateOrderStatus(orderId: number) {
+    return await Order.updateOrderStatus(orderId);
+}
+
 export default {
     getOrders,
     getOrder,
-    createOrder
+    createOrder,
+    updateOrderStatus
 }

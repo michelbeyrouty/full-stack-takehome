@@ -22,6 +22,7 @@ Possible enhacments for the project:
 - Add functional tests
 - Add pagination
 - Enhance validation in api controllers
+- Enhance UI screen size responsivness
 
 ## Notes
 - Added delay on frontend to showcase async components

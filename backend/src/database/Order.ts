@@ -54,7 +54,7 @@ async function getOrderByOrderId(orderId: number) {
 
 async function createOrder(order: IOrder) {
 
-    const insertOrder = "INSERT INTO work_orders (name, status) VALUES (?)"
+    const insertOrder = "INSERT INTO work_orders (name) VALUES (?)"
     const retrieveOrderID = "SELECT last_insert_rowid() AS order_id"
     const insertWorkOrderAsignees = "INSERT INTO work_order_assignees (work_order_id, user_id) VALUES (?, ?)"
 
@@ -66,7 +66,8 @@ async function createOrder(order: IOrder) {
         const result = await SQL_DB.sql(retrieveOrderID);
         const orderID = result[0].order_id;
 
-        for (const userID of order.users) {
+        const orderUser = order.users || []
+        for (const userID of orderUser) {
             await SQL_DB.sql(insertWorkOrderAsignees, [orderID, userID]);
         }
 
@@ -79,8 +80,29 @@ async function createOrder(order: IOrder) {
     }
 }
 
+async function updateOrderStatus(orderId: number) {
+
+    const updateOrderStatus = `
+        UPDATE work_orders
+        SET status = CASE
+            WHEN status = 'OPEN' THEN 'CLOSED'
+            WHEN status = 'CLOSED' THEN 'OPEN'
+            ELSE status
+        END
+        WHERE id = ?
+    `;
+
+    try {
+        await SQL_DB.sql(updateOrderStatus, [orderId]);
+    } catch (error: any) {
+        throw new ServerException(error.message, error.stack)
+    }
+
+}
+
 export default {
     getOrders,
     getOrderByOrderId,
-    createOrder
+    createOrder,
+    updateOrderStatus
 }

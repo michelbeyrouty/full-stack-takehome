@@ -4,7 +4,7 @@ export default async function updateOrderStatus(orderId: number) {
             method: 'PUT',
         };
 
-        await fetch(`http://localhost:4000/api/orders/${orderId}/status`, requestOptions);
+        await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/orders/${orderId}/status`, requestOptions);
     } catch (e) {
         throw e;
     }

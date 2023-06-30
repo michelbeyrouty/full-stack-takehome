@@ -1,16 +1,33 @@
-
 import SQL_DB from './db';
 import { ServerException } from '../exceptions/ServerException';
 
-async function getUserById(userId: number) {
+async function getUsers() {
+
+    const getUsers = "SELECT * FROM users"
+
     try {
-        const result = await SQL_DB.sql("SELECT * FROM users WHERE id = ?", [userId]);
-        return result[0]
+        return await SQL_DB.sql(getUsers);
     } catch (error: any) {
         throw new ServerException(error.message, error.stack)
     }
 }
 
-module.exports = {
-    getUserById
+async function getInactiveUsers() {
+
+    const getInactiveUsers = `
+        SELECT id, name, email
+        FROM users
+        WHERE id NOT IN ( SELECT DISTINCT user_id FROM work_order_assignees )
+    `;
+
+    try {
+        return await SQL_DB.sql(getInactiveUsers);
+    } catch (error: any) {
+        throw new ServerException(error.message, error.stack)
+    }
+}
+
+export default {
+    getUsers,
+    getInactiveUsers
 }

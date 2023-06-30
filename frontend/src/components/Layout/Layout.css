@@ -1,0 +1,26 @@
+.layout {
+  padding: 24px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  background-color: aliceblue;
+}
+
+.layout-glasspane {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5% 5% 5% 5%;
+}
+
+.layout-body {
+  height: 85%;
+  width: 100%;
+  overflow-y: auto;
+  padding-right: 24px;
+  padding-left: 20px;
+  padding-top: 8px;
+}

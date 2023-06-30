@@ -1,11 +1,14 @@
+import User from "../database/User";
 
-const User = require("../database/User")
+async function getUsers() {
+    return await User.getUsers();
+}
 
-async function getUserById(userId: number) {
-    const user = User.getUserById(userId);
-    return user;
+async function getInactiveUsers() {
+    return await User.getInactiveUsers();
 }
 
 export default {
-    getUserById
+    getUsers,
+    getInactiveUsers
 }

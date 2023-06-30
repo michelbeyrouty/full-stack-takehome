@@ -1,25 +1,22 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Example from "./components/Example";
-import Home from "./components/Home";
-import logo from "./assets/logo.svg";
-import "./styles.css";
+import Layout from "./components/Layout/Layout";
+import OrdersView from "./components/OrdersView/OrdersView";
+import OrderDetailsView from "./components/OrderDetailsView/OrderDetailsView";
+import ProductivityView from "./components/ProductivityView/ProductivityView";
+import OrderFromView from "./components/OrderFromView/OrderFromView";
+import "./index.css";
 
 export default function App() {
   return (
     <Router>
-      <div className="bg-blue h-screen w-screen flex flex-col items-center justify-center text-white text-center">
-        <img
-          src={logo}
-          className="animate-appLogoScale pointer-events-none h-[20vmin]"
-          alt="logo"
-        />
-        <div className="mt-[40px]">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/example" element={<Example />} />
-          </Routes>
-        </div>
-      </div>
+      <Layout>
+        <Routes>
+          <Route path="/productivity" element={<ProductivityView />} />
+          <Route path="/orders" element={<OrdersView />} />
+          <Route path="/create" element={<OrderFromView />} />
+          <Route path="/orders/:orderId" element={<OrderDetailsView />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 }

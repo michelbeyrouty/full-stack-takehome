@@ -1,0 +1,28 @@
+.productivity {
+  width: 95%;
+  height: 95%;
+  padding-left: 2%;
+  background-color: #1887fc;
+  display: flex;
+  flex-direction: column;
+}
+
+.productivity-header {
+  text-align: center;
+}
+
+.productivity-header > h2 {
+  font-size: xx-large;
+  line-height: 36px;
+}
+
+.productivity-body {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  gap: 10%;
+}

@@ -18,16 +18,14 @@
     "@types/react-dom": "^18.0.11",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.0.0",
-    "autoprefixer": "^10.4.14",
     "cross-env": "^7.0.3",
-    "postcss": "^8.4.24",
-    "tailwindcss": "^3.3.2",
     "typescript": "^5.1.3",
     "vite": "^4.2.0"
   },
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "echo \"Not implemented Yet\""
   }
 }

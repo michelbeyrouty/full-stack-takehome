@@ -1,8 +1,8 @@
 # MaintainX take-home project
 
-## Development 🚨
-More details about the development process can be found here 👇👇👇:
-  - [Project Development](docs/DEVELOPMENT.md)
+## Development 🚨🚨🚨
+👇👇👇More details about the development process can be found here 👇👇👇:
+  - [Project Development](docs/DEVELOPMENT.md) 👈👈👈
 
 ## Tech & setup
 

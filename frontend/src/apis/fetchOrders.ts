@@ -3,7 +3,7 @@ import { IOrder } from "../constants";
 
 export default async function fetchOrders(): Promise<IOrder[]> {
     try {
-        const response = await fetch("http://localhost:4000/api/orders");
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/orders`);
 
         await delay(1000);
         const { orders } = await response.json();

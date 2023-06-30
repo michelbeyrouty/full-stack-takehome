@@ -6,7 +6,7 @@ export default async function createOrder(order: any) {
             body: JSON.stringify(order)
         };
 
-        await fetch(`http://localhost:4000/api/orders`, requestOptions);
+        await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/orders`, requestOptions);
     } catch (e) {
         throw e;
     }

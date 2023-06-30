@@ -13,6 +13,12 @@ yarn install
 yarn start
 ```
 
+## Run Test
+Run tests using this command:
+```
+yarn test
+```
+
 ## Possible enhancments
 Possible enhacments for the project:
 
@@ -20,6 +26,7 @@ Possible enhacments for the project:
 - Add versioning to routes `/api/v1`
 - Use [http-status-codes](https://www.npmjs.com/package/http-status-codes) 3rd party library for status codes
 - Add functional tests
+- Add more unit tests
 - Add pagination
 - Enhance validation in api controllers
 - Enhance UI screen size responsivness

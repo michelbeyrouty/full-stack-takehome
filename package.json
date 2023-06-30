@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "start": "concurrently \"yarn --cwd frontend start\" \"yarn --cwd backend start\"",
-    "install": "yarn --cwd frontend install && yarn --cwd backend install"
+    "install": "yarn --cwd frontend install && yarn --cwd backend install",
+    "test": "yarn --cwd frontend test && yarn --cwd backend test"
   },
   "devDependencies": {
     "concurrently": "^8.2.0"

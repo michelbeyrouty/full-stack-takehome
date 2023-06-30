@@ -1,5 +1,5 @@
 import express from "express"
-import config from "./config"
+import config from "./constants/config"
 import SQL_DB from "./database/db";
 import handleError from "./middlewares/handleError";
 import logRequestDetails from "./middlewares/logRequestDetails";

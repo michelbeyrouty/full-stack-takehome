@@ -67,8 +67,8 @@ async function createOrder(order: IOrder) {
         const orderID = result[0].order_id;
 
         const orderUser = order.users || []
-        for (const userID of orderUser) {
-            await SQL_DB.sql(insertWorkOrderAsignees, [orderID, userID]);
+        for (const user of orderUser) {
+            await SQL_DB.sql(insertWorkOrderAsignees, [orderID, user.id]);
         }
 
         await SQL_DB.sql("COMMIT");

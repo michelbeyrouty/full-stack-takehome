@@ -1,4 +1,4 @@
-import { open as sqliteOpen } from "sqlite";
+import sqlite from "sqlite";
 import { Database } from "sqlite3";
 
 class SQL_DB {
@@ -10,7 +10,7 @@ class SQL_DB {
   }
 
   async connect() {
-    this.db = await sqliteOpen({ filename: ":memory:", driver: Database });;
+    this.db = await sqlite.open({ filename: ":memory:", driver: Database });;
   }
 
   async sql(query: string, variables?: (string | number | undefined)[]) {

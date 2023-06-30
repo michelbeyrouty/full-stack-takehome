@@ -26,10 +26,9 @@ export const createOrder = async (request: Request, response: Response, next: Ne
     try {
 
         const body: IOrder = request.body;
-        // TODO: Check types
 
-        if (!body.name) {
-            throw new ValidationException("One of the following keys is missing or is empty in request body: 'name'")
+        if (!body.name || typeof body.name != "string") {
+            throw new ValidationException("name input is missing or has the wrong type")
         }
 
         await orderService.createOrder(body);

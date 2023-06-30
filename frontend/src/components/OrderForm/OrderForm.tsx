@@ -1,5 +1,6 @@
 import "./OrderForm.css";
 import { useState } from "react";
+import { IUser } from "../../constants";
 import useGetUsers from "../../hooks/useGetUsers";
 import createOrder from "../../apis/createOrder";
 import Card from "../Card/Card";
@@ -30,11 +31,11 @@ export default function OrderForm() {
 
   async function handleMultiSelect(event: any) {
     const options = event.target.options;
-    const users: number[] = [];
+    const users: IUser[] = [];
 
     for (let i = 0, l = options.length; i < l; i++) {
       if (options[i].selected) {
-        users.push(Number(options[i].value));
+        users.push({ id: Number(options[i].value) });
       }
     }
 
@@ -65,7 +66,7 @@ export default function OrderForm() {
           <select
             name="version"
             onChange={handleMultiSelect}
-            value={formState.users}
+            value={formState.users.map((user) => user.id)}
             className="form-select"
             multiple
           >

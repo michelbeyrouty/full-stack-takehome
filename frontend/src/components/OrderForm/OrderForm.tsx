@@ -61,7 +61,7 @@ export default function OrderForm() {
         </div>
         <div className="form-field">
           <div className="form-field-title">
-            Users <span>Press CTRL for multi-select</span>
+            Users <span>Press Command for multi-select</span>
           </div>
           <select
             name="version"
